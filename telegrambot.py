@@ -43,7 +43,7 @@ def handle(msg):
         else:
             GPIO.output(pino_led,GPIO.LOW)
             bot.sendMessage(chat_id, 'O led foi desligado')
-    elif command == 'festa':
+    elif command == 'alarme':
         bot.sendMessage(chat_id, 'tuts tuts')
         for i in range(10):
             GPIO.output(pino_led, GPIO.HIGH)
