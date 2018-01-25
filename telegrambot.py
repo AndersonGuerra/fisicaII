@@ -33,7 +33,7 @@ def handle(msg):
             GPIO.output(pino_buzzer, GPIO.LOW)
         else:
             GPIO.output(pino_led,GPIO.HIGH)
-            bot.sendMessage(chat_id, 'U+1F601')
+            bot.sendMessage(chat_id, '\xF0\x9F\x92\xA1')
     elif command =="off":
         if (GPIO.input(pino_led) == 0):
             bot.sendMessage(chat_id, "O led já está desligado")
