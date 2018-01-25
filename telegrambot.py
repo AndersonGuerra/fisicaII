@@ -21,7 +21,7 @@ GPIO.setup(pino_buzzer, GPIO.OUT)
 
 def handle(msg):
     chat_id = msg['chat']['id']
-    command = msg['text']
+    command = msg['text'].lower()
 
     print ('Recebeu a mensagem: {}'.format(command))
     
