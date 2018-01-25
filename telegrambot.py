@@ -24,7 +24,6 @@ def handle(msg):
     command = msg['text'].lower()
 
     print ('Recebeu a mensagem: {}'.format(command))
-    print(chat_id)
     
     if command == 'on':
         if (GPIO.input(pino_led) == 1):
