@@ -24,11 +24,17 @@ def handle(msg):
     print ('Recebeu a mensagem: {}'.format(command))
     
     if command == 'on':
-        GPIO.output(pino_led,GPIO.HIGH)
-        bot.sendMessage(chat_id, 'O led foi aceso')       
+        if (GPIO.input(pino_led) == 1):
+            bot.sendMessage(chat_id, 'O led já está aceso')
+        else:
+            GPIO.output(pino_led,GPIO.HIGH)
+            bot.sendMessage(chat_id, 'O led foi aceso')
     elif command =='off':
-        GPIO.output(pino_led,GPIO.LOW)
-        bot.sendMessage(chat_id, 'O led foi desligado')
+        if (GPIO.input(pino_led) == 0):
+            bot.sendMessage(chat_id, 'O led já está desligado')
+        else:
+            GPIO.output(pino_led,GPIO.LOW)
+            bot.sendMessage(chat_id, 'O led foi desligado')
     elif command == 'temperatura':
         umid, temp = Adafruit_DHT.read_retry(sensor, pino_sensor);
        # Caso leitura esteja ok, mostra os valores na tela
