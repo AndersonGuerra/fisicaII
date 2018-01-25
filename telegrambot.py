@@ -1,44 +1,20 @@
 # Carrega as bibliotecas
-import sys
 import time
-import random
-import datetime
 import telepot
 import RPi.GPIO as GPIO
 import Adafruit_DHT
-import Adafruit_CharLCD as LCD
-
  
 # Define o tipo de sensor
 sensor = Adafruit_DHT.DHT11
- 
+
+# Configura a numeração dos pinos 
 GPIO.setmode(GPIO.BCM)
  
 # Define a GPIO conectada ao pino de dados do sensor
 pino_sensor = 25
 pino_led = 17
 
-# Pinos LCD x Raspberry (GPIO)
-lcd_rs        = 18
-lcd_en        = 23
-lcd_d4        = 12
-lcd_d5        = 16
-lcd_d6        = 20
-lcd_d7        = 21
-lcd_backlight = 4
-
-# Define numero de colunas e linhas do LCD
-lcd_colunas = 16
-lcd_linhas  = 2
-
-# Inicializa o LCD nos pinos configurados acima
-lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5,
-                           lcd_d6, lcd_d7, lcd_colunas, lcd_linhas,
-                           lcd_backlight)
-
-lcd.message('nossa')
-
-# set up GPIO output channel
+# configura uma GPIO como saída
 GPIO.setup(pino_led, GPIO.OUT)
 
 def handle(msg):
