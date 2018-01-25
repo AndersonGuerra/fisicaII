@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BCM)
 # Define a GPIO conectada ao pino de dados do sensor
 pino_sensor = 25
 pino_led = 17
-pino_buzzer = 21
+pino_buzzer = 22
 
 # configura uma GPIO como saída
 GPIO.setup(pino_led, GPIO.OUT)
