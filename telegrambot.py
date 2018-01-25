@@ -29,7 +29,7 @@ def handle(msg):
         if (GPIO.input(pino_led) == 1):
             bot.sendMessage(chat_id, 'O led já está aceso')
             GPIO.output(pino_buzzer, GPIO.HIGH)
-            time.sleep(1000)
+            time.sleep(1)
             GPIO.output(pino_buzzer, GPIO.LOW)
         else:
             GPIO.output(pino_led,GPIO.HIGH)
@@ -38,7 +38,7 @@ def handle(msg):
         if (GPIO.input(pino_led) == 0):
             bot.sendMessage(chat_id, 'O led já está desligado')
             GPIO.output(pino_buzzer, GPIO.HIGH)
-            time.sleep(1000)
+            time.sleep(1)
             GPIO.output(pino_buzzer, GPIO.LOW)
         else:
             GPIO.output(pino_led,GPIO.LOW)
