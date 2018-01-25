@@ -33,7 +33,7 @@ def handle(msg):
             GPIO.output(pino_buzzer, GPIO.LOW)
         else:
             GPIO.output(pino_led,GPIO.HIGH)
-            bot.sendMessage(chat_id, 'O led foi aceso')
+            bot.sendMessage(chat_id, '\xF0\x9F\x92\xA1 O led foi aceso')
     elif command =='off':
         if (GPIO.input(pino_led) == 0):
             bot.sendMessage(chat_id, 'O led já está desligado')
@@ -44,7 +44,7 @@ def handle(msg):
             GPIO.output(pino_led,GPIO.LOW)
             bot.sendMessage(chat_id, 'O led foi desligado')
     elif command == 'alarme':
-        bot.sendMessage(chat_id, 'O alarme foi acionado')
+        bot.sendMessage(chat_id, '\xF0\x9F\x9A\xA8 O alarme foi acionado')
         for i in range(10):
             GPIO.output(pino_led, GPIO.HIGH)
             GPIO.output(pino_buzzer, GPIO.HIGH)
