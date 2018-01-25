@@ -13,11 +13,11 @@ GPIO.setmode(GPIO.BCM)
 # Define a GPIO conectada ao pino de dados do sensor
 pino_sensor = 25
 pino_led = 17
-pino_buzzer = 22
+pino_buzzer = 21
 
 # configura uma GPIO como saída
 GPIO.setup(pino_led, GPIO.OUT)
-GPIO.setup(pino_sensor, GPIO.OUT)
+GPIO.setup(pino_buzzer, GPIO.OUT)
 
 def handle(msg):
     chat_id = msg['chat']['id']
