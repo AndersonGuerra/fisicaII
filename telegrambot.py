@@ -43,6 +43,15 @@ def handle(msg):
         else:
             GPIO.output(pino_led,GPIO.LOW)
             bot.sendMessage(chat_id, 'O led foi desligado')
+    elif command == 'festa':
+        bot.sendMessage(chat_id, 'tuts tuts')
+        for i in range(10):
+            GPIO.output(pino_led, GPIO.HIGH)
+            GPIO.output(pino_buzzer, GPIO.HIGH)
+            time.sleep(0.3)
+            GPIO.output(pino_led, GPIO.LOW)
+            GPIO.output(pino_buzzer, GPIO.LOW)
+            time.sleep(0.3)
     elif command == 'temperatura':
         umid, temp = Adafruit_DHT.read_retry(sensor, pino_sensor);
        # Caso leitura esteja ok, mostra os valores na tela
