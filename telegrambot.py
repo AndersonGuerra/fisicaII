@@ -13,9 +13,11 @@ GPIO.setmode(GPIO.BCM)
 # Define a GPIO conectada ao pino de dados do sensor
 pino_sensor = 25
 pino_led = 17
+pino_buzzer = 21
 
 # configura uma GPIO como saída
 GPIO.setup(pino_led, GPIO.OUT)
+GPIO.setup(pino_sensor, GPIO.OUT)
 
 def handle(msg):
     chat_id = msg['chat']['id']
@@ -26,12 +28,18 @@ def handle(msg):
     if command == 'on':
         if (GPIO.input(pino_led) == 1):
             bot.sendMessage(chat_id, 'O led já está aceso')
+            GPIO.output(pino_buzzer, GPIO.HIGH)
+            time.sleep(1000)
+            GPIO.output(pino_buzzer, GPIO.LOW)
         else:
             GPIO.output(pino_led,GPIO.HIGH)
             bot.sendMessage(chat_id, 'O led foi aceso')
     elif command =='off':
         if (GPIO.input(pino_led) == 0):
             bot.sendMessage(chat_id, 'O led já está desligado')
+            GPIO.output(pino_buzzer, GPIO.HIGH)
+            time.sleep(1000)
+            GPIO.output(pino_buzzer, GPIO.LOW)
         else:
             GPIO.output(pino_led,GPIO.LOW)
             bot.sendMessage(chat_id, 'O led foi desligado')
