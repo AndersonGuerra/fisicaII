@@ -52,6 +52,12 @@ def handle(msg):
             GPIO.output(pino_led, GPIO.LOW)
             GPIO.output(pino_buzzer, GPIO.LOW)
             time.sleep(0.3)
+    elif command == 'top':
+        GPIO.PWM(pino_buzzer, 50)
+        time.sleep(0.3)
+        GPIO.PWM(pino_buzzer, 100)
+        time.sleep(0.3)
+        GPIO.output(pino_buzzer, GPIO.LOW)
     elif command == "temperatura":
         umid, temp = Adafruit_DHT.read_retry(sensor, pino_sensor);
        # Caso leitura esteja ok, mostra os valores na tela
