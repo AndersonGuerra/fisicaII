@@ -72,5 +72,3 @@ bot = telepot.Bot("463886559:AAEC84FJHOWCrJ0RfdERfLJf_f8G67dIMLA")
 bot.message_loop(handle)
 print("Aguardando comando")
 
-while 1:
-     time.sleep(10)
